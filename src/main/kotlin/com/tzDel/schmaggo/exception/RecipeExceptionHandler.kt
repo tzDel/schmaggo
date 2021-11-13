@@ -15,4 +15,12 @@ class RecipeExceptionHandler {
     @ExceptionHandler(RecipeNotFoundException::class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipeNotFoundException.REASON)
     fun handleRecipeNotFoundException(exception: RecipeNotFoundException){ }
+
+    @ExceptionHandler(RecipePersistenceException::class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipePersistenceException.REASON)
+    fun handleRecipePersistenceException(exception: RecipePersistenceException){ }
+
+    @ExceptionHandler(RecipeDeletionException::class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipeDeletionException.REASON)
+    fun handleRecipeDeletionException(exception: RecipeDeletionException){ }
 }

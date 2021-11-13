@@ -25,7 +25,7 @@ class CustomRecipe(
     @JsonProperty("description")
     var description: String?,
 
-    @JsonProperty("description")
+    @JsonProperty("temporalLength")
     var temporalLength: Int?,
 
     @ElementCollection
