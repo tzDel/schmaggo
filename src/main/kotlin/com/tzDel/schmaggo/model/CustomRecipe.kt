@@ -32,7 +32,7 @@ class CustomRecipe(
     @ElementCollection
     @JsonProperty("ingredients")
     var ingredients: List<Ingredient>
-){
+) {
     override fun equals(other: Any?): Boolean {
         if(this === other) return true
         if(javaClass != other?.javaClass) return false
@@ -58,12 +58,3 @@ class CustomRecipe(
     }
 }
 
-@Embeddable
-data class Ingredient(
-    @JsonProperty("name") var name: String,
-    @JsonProperty("quantity") var quantity: Int,
-    @JsonProperty("unit") var unit: UnitOfMeasure
-    )
-@Embeddable
-data class Step(@JsonProperty("text") var text: String)
-enum class UnitOfMeasure(var text: String){ PIECE ("pc"), LITRE("l"), GRAM("g") }
