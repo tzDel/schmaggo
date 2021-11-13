@@ -10,5 +10,9 @@ class RecipeExceptionHandler {
 
     @ExceptionHandler(RecipeAlreadyExistingException::class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipeAlreadyExistingException.REASON)
-    fun handleApiRequestException(exception: RecipeAlreadyExistingException){ }
+    fun handleRecipeAlreadyExistingException(exception: RecipeAlreadyExistingException){ }
+
+    @ExceptionHandler(RecipeNotFoundException::class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipeNotFoundException.REASON)
+    fun handleRecipeNotFoundException(exception: RecipeNotFoundException){ }
 }
