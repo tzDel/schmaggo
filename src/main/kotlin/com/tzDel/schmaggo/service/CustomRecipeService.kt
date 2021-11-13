@@ -7,24 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class CustomRecipeService(@Autowired private val customRecipeRepository: ICustomRecipeRepository) {
+class CustomRecipeService(
+    @Autowired private val customRecipeRepository: ICustomRecipeRepository
+): ICustomRecipeService {
 
-    fun getAllCustomRecipes(): List<CustomRecipe?> = customRecipeRepository.findAll()
+    override fun getAllCustomRecipes(): List<CustomRecipe?> = customRecipeRepository.findAll()
 
-    fun deleteCustomRecipeId(id: Int) = customRecipeRepository.deleteById(id)
+    override fun deleteCustomRecipeId(id: Int) = customRecipeRepository.deleteById(id)
 
-    fun updateCustomRecipe(id: Int, recipe: CustomRecipe) {
-            val updatedRecipe = customRecipeRepository.getById(id).apply {
-                name = recipe.name
-                description = recipe.description
-                ingredients = recipe.ingredients
-                steps = recipe.steps
-            }
-            customRecipeRepository.save(updatedRecipe)
+    override fun updateCustomRecipe(id: Int, recipe: CustomRecipe) {
+        val updatedRecipe = customRecipeRepository.getById(id).apply {
+            name = recipe.name
+            description = recipe.description
+            ingredients = recipe.ingredients
+            steps = recipe.steps
+        }
+        customRecipeRepository.save(updatedRecipe)
     }
 
-    fun addCustomRecipe(recipeToAdd: CustomRecipe) {
-        if (isAlreadyExisting(recipeToAdd)) {
+    override fun addCustomRecipe(recipeToAdd: CustomRecipe) {
+        if(isAlreadyExisting(recipeToAdd)) {
             throw RecipeAlreadyExistingException()
         }
         customRecipeRepository.save(recipeToAdd)

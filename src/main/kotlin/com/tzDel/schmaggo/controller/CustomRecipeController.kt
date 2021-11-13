@@ -1,13 +1,13 @@
 package com.tzDel.schmaggo.controller
 
 import com.tzDel.schmaggo.model.CustomRecipe
-import com.tzDel.schmaggo.service.CustomRecipeService
+import com.tzDel.schmaggo.service.ICustomRecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/custom_recipe")
-class CustomRecipeController(@Autowired private val customRecipeService: CustomRecipeService) {
+class CustomRecipeController(@Autowired private val customRecipeService: ICustomRecipeService) {
 
     @GetMapping("/getAll")
     fun getAllRecipes() = customRecipeService.getAllCustomRecipes()
