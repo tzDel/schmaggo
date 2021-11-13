@@ -1,4 +1,4 @@
-package com.tzDel.schmaggo.exception
+package com.tzDel.schmaggo.customrecipe.exception
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ControllerAdvice

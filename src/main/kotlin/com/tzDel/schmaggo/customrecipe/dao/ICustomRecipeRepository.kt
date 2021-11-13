@@ -1,6 +1,6 @@
-package com.tzDel.schmaggo.dao
+package com.tzDel.schmaggo.customrecipe.dao
 
-import com.tzDel.schmaggo.model.CustomRecipe
+import com.tzDel.schmaggo.customrecipe.model.CustomRecipe
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param

@@ -1,7 +1,7 @@
-package com.tzDel.schmaggo.controller
+package com.tzDel.schmaggo.customrecipe.controller
 
-import com.tzDel.schmaggo.model.CustomRecipe
-import com.tzDel.schmaggo.service.ICustomRecipeService
+import com.tzDel.schmaggo.customrecipe.model.CustomRecipe
+import com.tzDel.schmaggo.customrecipe.service.ICustomRecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 

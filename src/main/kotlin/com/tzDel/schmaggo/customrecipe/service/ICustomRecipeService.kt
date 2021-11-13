@@ -1,7 +1,6 @@
-package com.tzDel.schmaggo.service
+package com.tzDel.schmaggo.customrecipe.service
 
-import com.tzDel.schmaggo.exception.RecipeAlreadyExistingException
-import com.tzDel.schmaggo.model.CustomRecipe
+import com.tzDel.schmaggo.customrecipe.model.CustomRecipe
 
 interface ICustomRecipeService {
 

@@ -1,11 +1,11 @@
-package com.tzDel.schmaggo.service
+package com.tzDel.schmaggo.customrecipe.service
 
-import com.tzDel.schmaggo.dao.ICustomRecipeRepository
-import com.tzDel.schmaggo.exception.RecipeAlreadyExistingException
-import com.tzDel.schmaggo.exception.RecipeDeletionException
-import com.tzDel.schmaggo.exception.RecipeNotFoundException
-import com.tzDel.schmaggo.exception.RecipePersistenceException
-import com.tzDel.schmaggo.model.CustomRecipe
+import com.tzDel.schmaggo.customrecipe.dao.ICustomRecipeRepository
+import com.tzDel.schmaggo.customrecipe.exception.RecipeAlreadyExistingException
+import com.tzDel.schmaggo.customrecipe.exception.RecipeDeletionException
+import com.tzDel.schmaggo.customrecipe.exception.RecipeNotFoundException
+import com.tzDel.schmaggo.customrecipe.exception.RecipePersistenceException
+import com.tzDel.schmaggo.customrecipe.model.CustomRecipe
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
