@@ -25,6 +25,9 @@ class CustomRecipe(
     @JsonProperty("description")
     var description: String?,
 
+    @JsonProperty("description")
+    var temporalLength: Int?,
+
     @ElementCollection
     @JsonProperty("steps")
     var steps: List<Step>,
@@ -42,6 +45,7 @@ class CustomRecipe(
         if(id == other.id) return true
         if(name != other.name) return false
         if(description != other.description) return false
+        if(temporalLength != other.temporalLength) return false
         if(steps != other.steps) return false
         if(ingredients != other.ingredients) return false
 

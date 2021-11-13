@@ -19,6 +19,7 @@ class CustomRecipeService(
         val updatedRecipe = customRecipeRepository.getById(id).apply {
             name = recipe.name
             description = recipe.description
+            temporalLength = recipe.temporalLength
             ingredients = recipe.ingredients
             steps = recipe.steps
         }
