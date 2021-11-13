@@ -1,4 +1,4 @@
-package com.tzDel.Schmaggo
+package com.tzDel.schmaggo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
