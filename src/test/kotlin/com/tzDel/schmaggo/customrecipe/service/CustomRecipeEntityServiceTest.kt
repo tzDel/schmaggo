@@ -1,6 +1,6 @@
 package com.tzDel.schmaggo.customrecipe.service
 
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.whenever
 import com.tzDel.schmaggo.customrecipe.builder.CustomRecipeBuilder
 import com.tzDel.schmaggo.customrecipe.dao.ICustomRecipeRepository
 import com.tzDel.schmaggo.customrecipe.exception.RecipeAlreadyExistingException
@@ -12,18 +12,25 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.ArgumentMatchers.anyString
+import org.mockito.Mock
 import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
+import org.mockito.junit.jupiter.MockitoExtension
 import java.lang.IllegalArgumentException
+import java.util.*
 import javax.persistence.EntityNotFoundException
 
+@ExtendWith(MockitoExtension::class)
 internal class CustomRecipeEntityServiceTest {
-    lateinit var customRecipeRepository: ICustomRecipeRepository
+
+    @Mock
+    private lateinit var customRecipeRepository: ICustomRecipeRepository
     private lateinit var customServiceEntityService: CustomRecipeEntityService
 
     @BeforeEach
     fun setup() {
-        customRecipeRepository = mock()
         customServiceEntityService = CustomRecipeEntityService(customRecipeRepository)
     }
 
@@ -43,11 +50,12 @@ internal class CustomRecipeEntityServiceTest {
     @Test
     fun `tryGetCustomRecipeById should throw RecipeNotFoundException on EntityNotFoundException`() {
         //arrange
-        whenever(customRecipeRepository.getById(any()))
+        val recipeId = 2
+        whenever(customRecipeRepository.getById(recipeId))
             .thenThrow(EntityNotFoundException())
         //act & assert
         assertThrows(RecipeNotFoundException::class.java) {
-            customServiceEntityService.tryGetCustomRecipeById(any())
+            customServiceEntityService.tryGetCustomRecipeById(recipeId)
         }
     }
 
@@ -106,7 +114,6 @@ internal class CustomRecipeEntityServiceTest {
     fun `tryDeleteCustomRecipeById should delete custom recipe`() {
         //arrange
         val recipeId = 2
-        doNothing().whenever(customRecipeRepository).deleteById(recipeId)
         //act
         customServiceEntityService.tryDeleteCustomRecipeById(recipeId)
         //assert

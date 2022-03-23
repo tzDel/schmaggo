@@ -1,21 +1,25 @@
 package com.tzDel.schmaggo.customrecipe.service
 
-import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.tzDel.schmaggo.customrecipe.builder.CustomRecipeBuilder
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mock
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
+import org.mockito.junit.jupiter.MockitoExtension
 
+@ExtendWith(MockitoExtension::class)
 internal class CustomRecipeServiceTest {
-    lateinit var customRecipeEntityService: CustomRecipeEntityService
-    private lateinit var customRecipeService: CustomRecipeService
+
+    @Mock
+    private lateinit var customRecipeEntityService: CustomRecipeEntityService
+    private lateinit var customRecipeService: ICustomRecipeService
 
     @BeforeEach
     fun setup() {
-        customRecipeEntityService = mock()
         customRecipeService = CustomRecipeService(customRecipeEntityService)
     }
 
