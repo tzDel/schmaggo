@@ -13,11 +13,11 @@ class RecipeExceptionHandler {
     fun handleRecipeAlreadyExistingException(exception: RecipeAlreadyExistingException){ }
 
     @ExceptionHandler(RecipeNotFoundException::class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipeNotFoundException.REASON)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = RecipeNotFoundException.REASON)
     fun handleRecipeNotFoundException(exception: RecipeNotFoundException){ }
 
     @ExceptionHandler(RecipePersistenceException::class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = RecipePersistenceException.REASON)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = RecipePersistenceException.REASON)
     fun handleRecipePersistenceException(exception: RecipePersistenceException){ }
 
     @ExceptionHandler(RecipeDeletionException::class)
