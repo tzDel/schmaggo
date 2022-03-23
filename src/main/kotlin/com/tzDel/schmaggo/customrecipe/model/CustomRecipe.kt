@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import javax.persistence.*
 
 @Entity(name = "custom_recipe")
-@Table(name = "custom_recipe")
+@Table(name = "custom_recipes")
 class CustomRecipe(
     @Id
     @SequenceGenerator(

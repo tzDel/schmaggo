@@ -11,7 +11,7 @@ interface ICustomRecipeRepository: JpaRepository<CustomRecipe, Int> {
 
     @Query(
         value = "SELECT * " +
-                "FROM custom_recipe r " +
+                "FROM custom_recipes r " +
                 "WHERE r.name LIKE %?1%",
         nativeQuery = true
     )
