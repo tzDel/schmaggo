@@ -1,11 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-	id("org.springframework.boot") version "2.5.5"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.5.31"
-	kotlin("plugin.spring") version "1.5.31"
-	kotlin("plugin.jpa") version "1.5.31"
+	alias(libs.plugins.springBoot)
+	alias(libs.plugins.springDependencyManagement)
+	alias(libs.plugins.kotlinJvm)
+	alias(libs.plugins.kotlinSpring)
+	alias(libs.plugins.kotlinJpa)
 }
 
 group = "com.tzDel"
@@ -17,14 +18,10 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	runtimeOnly("org.postgresql:postgresql")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+	runtimeOnly("org.postgresql:postgresql:42.3.3")
+	implementation(libs.bundles.springBoot)
+	implementation(libs.bundles.kotlin)
+	testImplementation(libs.bundles.test)
 }
 
 tasks.withType<KotlinCompile> {
